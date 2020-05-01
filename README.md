@@ -19,9 +19,21 @@ but any virtualenv with those packages will do
 
     dkms install v4l2loopback/0.12.4   # just to build and install that module
 
-    modprobe v4l2loopback devices=1 video_nr=20 card_label="v4l2loopback" exclusive_caps=1
+    modprobe v4l2loopback devices=1 video_nr=20 card_label="Fake Webcam" exclusive_caps=1
+
+Now move away from the camera and execute (or run, but if you run, you will never be on the camera again)
 
     ./main.py --bg backgrounds/office.mp4 --output /dev/video20
+
+Wait until the "Learning... nn" message stops appearing.
+
+Then start any webcam or videoconference software you like and select the "Fake Webcam".
+
+You can test v4l2loopback at any time using `mpv` or `vlc` as in
+
+    mpv av://v4l2:/dev/video20
+
+    vlc v4l2:///dev/video20
 
 ### Usage
 
