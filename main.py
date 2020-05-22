@@ -257,6 +257,7 @@ if __name__ == '__main__':
                         help='image or video which will be used as background')
     parser.add_argument('--shadow', action='store_true', default=False, help='adds shadow effect')
     parser.add_argument('--hologram', action='store_true', default=False, help='adds hologram effect')
+    parser.add_argument('--blur', type=int, default=0, help='background blur level')
     parser.add_argument('--input', type=str, default='/dev/video0', help='input video device (webcam)')
     parser.add_argument('--output', type=str, help='output video device (optional pyfake device)')
     parser.add_argument('--debug', action='store_true', default=False)
@@ -271,6 +272,8 @@ if __name__ == '__main__':
         app.add_effect(ShadowEffect())
     if args.hologram:
         app.add_effect(HologramEffect())
+    if args.blur:
+        app._background.set_blur_level(args.blur)
     #app.set_background(backgrounds_directory + 'backvan.jpg')
     #app.set_background(backgrounds_directory + 'thisisfine.jpg')
     #app.set_background(backgrounds_directory + 'background-t1r.jpg')
