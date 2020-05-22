@@ -134,11 +134,14 @@ class BackgroundReplacer:
                 # fake webcam expects RGB
                 frame = cv2.cvtColor(self.frame.output, cv2.COLOR_BGR2RGB)
                 self._output_dev.schedule_frame(frame)
-            key = chr(cv2.waitKey(1) & 0xFF).lower()
+            fullkey = chr(cv2.waitKey(1) & 0xFF)
+            key = fullkey.lower()
             if key == 'b':
                 blur_level = self._background.get_blur_level()
-                if blur_level < 20:
+                if fullkey == 'b' and blur_level < 20:
                     blur_level += 3
+                elif fullkey == 'B' and blur_level > 3:
+                    blur_level -= 3
                 else:
                     blur_level = 0
                 self._background.set_blur_level(blur_level)
