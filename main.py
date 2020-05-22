@@ -96,7 +96,7 @@ class BackgroundReplacer:
         self.frame.output = frame
 
     def show_help(self):
-        print('(q)uit - (b)lur level - (f)orward bg video - (r)eset bg mask')
+        print('(q)uit - (b)lur level - (f)orward bg video - (r)eset bg mask - (d)isable bg replace')
 
     def run(self):
         # run forever, or at least until 'q' is pressed
@@ -105,6 +105,7 @@ class BackgroundReplacer:
             self.set_background('background-t1r.jpg')
         text1 = AddTextEffect('Recording background', (10, 10))
         text2 = AddTextEffect('Move away from the camera!', (10, 10))
+        disabled = False
         while True:
             ret, frame = self._input_dev.read()
             if DEBUG:
@@ -126,9 +127,10 @@ class BackgroundReplacer:
                 self.show_help()
             for effect in self.effects:
                 effect.apply(self.frame)
-            self._apply_background()
             if DEBUG:
                 cv2.imshow('output_frame', self.frame.output)
+            if not disabled:
+                self._apply_background()
             if self._output_dev is not None:
                 # fake webcam expects RGB
                 frame = cv2.cvtColor(self.frame.output, cv2.COLOR_BGR2RGB)
@@ -142,6 +144,12 @@ class BackgroundReplacer:
                     blur_level = 0
                 self._background.set_blur_level(blur_level)
                 print('  blur level set to %s' % blur_level)
+            elif key == 'd':
+                disabled = not disabled
+                if disabled:
+                    print('  background replacement disabled')
+                else:
+                    print('  background replacement enabled')
             elif key == 'f':
                 if isinstance(self._background, VideoBackground):
                     self._background.seek(5)
