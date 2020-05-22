@@ -150,7 +150,7 @@ class BackgroundReplacer:
                 else:
                     print('  background replacement enabled')
             elif key == 'f':
-                if isinstance(self._background, VideoBackground):
+                if hasattr(self._background, 'seek'):
                     self._background.seek(5)
                     fn = self._background._framenum * self._background._properties[2]
                     print('  advanced background to %d:%d' % (fn // 60, fn % 60))
