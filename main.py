@@ -127,10 +127,9 @@ class BackgroundReplacer:
                 self.show_help()
             for effect in self.effects:
                 effect.apply(self.frame)
-            if DEBUG:
-                cv2.imshow('output_frame', self.frame.output)
             if not disabled:
                 self._apply_background()
+            cv2.imshow('Fake Webcam Output', self.frame.output)
             if self._output_dev is not None:
                 # fake webcam expects RGB
                 frame = cv2.cvtColor(self.frame.output, cv2.COLOR_BGR2RGB)
