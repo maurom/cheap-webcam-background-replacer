@@ -59,11 +59,20 @@ Please excuse the brevity. I'm really in a hurry.
 
 ## MOre backgrounds
 
+- [WindowSwap](http://window-swap.com/window) - [Sonali Ranjit on Vimeo](https://vimeo.com/user3419965)  
+  A really interesting quarantine project by Sonali Ranjit and Vaishnav Balasubramaniam.
 - [ZoomerBackgrounds - Video calling in style.](https://zoomerbackgrounds.com/)
 - [Funny zoom backgrounds - To make the meetings bearable](https://funnyzoombackgrounds.com/)
 - [Zoom Backgrounds for work](https://www.reddit.com/r/zoombackgrounds/)
 - [Pixabay Videos](https://pixabay.com/videos/)
 - [Zoom backgrounds in UnSplash](https://unsplash.com/collections/1887152/zoom-backgrounds)
+- [Trabaje desde casa con estilo con los fondos virtuales GRATIS](https://www.shutterstock.com/es/discover/free-virtual-backgrounds)
+- [Dartmouth Library Zoom Backgrounds](https://www.library.dartmouth.edu/library-zoom-backgrounds)
+- [Library Backgrounds for Your Next Zoom Meeting](https://www.lapl.org/collections-resources/blogs/lapl/library-virtual-backgrounds-zoom)
+- [All backgrounds for video calls](https://www.hellobackgrounds.com/backgrounds/#show-videos=true)
+- [Den of Geek - Rick & Morty Zoom Backgrounds](https://www.denofgeek.com/tv/rick-and-morty-zoom-backgrounds/)
+- [Den of Geek - Geeky Zoom Backgrounds](https://www.denofgeek.com/culture/best-geeky-zoom-backgrounds-virtual-meetings/)
+- [Rick and Morty animated in the car](https://www.reddit.com/r/zoombackgrounds/comments/fuew3j/rick_and_morty_animated_in_the_car/)
 
 ---
 
