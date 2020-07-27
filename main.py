@@ -300,7 +300,7 @@ if __name__ == '__main__':
     parser.add_argument('--hologram', action='store_true', default=False, help='adds hologram effect')
     parser.add_argument('--blur', type=int, default=0, help='background blur level')
     parser.add_argument('--input', type=str, default='/dev/video0', help='input video device (webcam)')
-    parser.add_argument('--output', type=str, help='output video device (optional pyfake device)')
+    parser.add_argument('--output', type=str, default='/dev/video20', help='output video device (pyfake device)')
     parser.add_argument('--debug', action='store_true', default=False)
 
     args = parser.parse_args()
