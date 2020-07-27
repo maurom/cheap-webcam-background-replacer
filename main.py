@@ -78,8 +78,12 @@ class BackgroundReplacer:
     def set_background(self, filepath):
         _, ext = splitext(filepath)
         if ext in ['.jpg', '.png']:
+            if self._background is not None:
+                del self._background
             self._background = StaticBackground(filepath, self.frame)
         elif ext in ['.mp4']:
+            if self._background is not None:
+                del self._background
             self._background = AnimatedBackground(filepath, self.frame)
         else:
             raise RuntimeError('Invalid background format: %s. Valid extensions: jpg, png, mp4' % filepath)
