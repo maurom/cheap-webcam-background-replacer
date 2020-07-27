@@ -239,7 +239,7 @@ class BackgroundSustractor:
         #mask = cv2.dilate(mask, np.ones((3, 3), np.uint8), iterations=1)
         #mask = cv2.erode(mask, np.ones((4, 4), np.uint8), iterations=1)
         #mask = cv2.morphologyEx(mask, cv2.MORPH_OPEN, np.ones((5, 5), np.uint8))
-        mask = cv2.blur(mask.astype(float), (7, 7))
+        mask = cv2.blur(mask.astype(float), (5, 5))
         return mask
 
     def imfill(self, input):
