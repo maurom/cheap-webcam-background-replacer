@@ -56,6 +56,18 @@ optional arguments:
 
 Please excuse the brevity. I'm really in a hurry.
 
+### Keys
+
+While the app is running and the focus is on the output window, you can press the following keys to perform different commands:
+
+- **b** or **B**: increase or decrease background blur level
+- **d**: disable / enable background replacement
+- **f**: advance video background by 5 sec
+- **r**: re-train the background removal module
+- **s**: show available background images / videos
+- **1-9**: switch to background N
+- **q**: quit the app
+
 
 ## MOre backgrounds
 
