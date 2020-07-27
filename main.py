@@ -7,8 +7,9 @@
 #
 
 from argparse import ArgumentParser
-from os import system
-from os.path import splitext
+from os import listdir, system
+from os.path import dirname, isdir, join, splitext
+from random import shuffle
 
 import cv2
 import numpy as np
@@ -99,6 +100,16 @@ class BackgroundReplacer:
             frame[:,:,c] = frame[:,:,c] * self.frame.mask + self.frame.background[:,:,c] * inv_mask
         self.frame.output = frame
 
+    def _show_files_menu(self, folder):
+        print('Please choose a file or directory')
+        dlist = sorted(listdir(folder))
+        shuffle(dlist)
+        dlist.insert(0, '..')
+        for i, filename in enumerate(dlist):
+            print('%d) %-20s   ' % (i, filename))
+        print()
+        return dlist
+
     def show_help(self):
         print('(q)uit - (b)lur level - (f)orward bg video - (r)eset bg mask - (d)isable bg replace')
 
@@ -110,6 +121,8 @@ class BackgroundReplacer:
         text1 = AddTextEffect('Recording background', (10, 10))
         text2 = AddTextEffect('Move away from the camera!', (10, 10))
         disabled = False
+        folder = dirname(self._background._filepath)
+        filelist = []
         while True:
             ret, frame = self._input_dev.read()
             if DEBUG:
@@ -168,6 +181,20 @@ class BackgroundReplacer:
             elif key == 'r':
                 print('   mask cleared')
                 self._bgsub.forget_mask()
+            elif key == 's':
+                filelist = self._show_files_menu(folder)
+            elif key >= '0' and key <= '9':
+                if folder and filelist:
+                    # choose bg file
+                    newfile = join(folder, filelist[int(key)])
+                    if isdir(newfile):
+                        folder = newfile
+                        filelist = self._show_files_menu(folder)
+                    else:
+                        try:
+                            self.set_background(newfile)
+                        except RuntimeError as e:
+                            print(str(e))
         cv2.destroyAllWindows()
 
 
